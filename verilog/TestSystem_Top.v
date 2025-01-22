@@ -17,17 +17,29 @@ module TestSystem_Top(
     input  wire [31:0]  max_cycles   // Max test cycles
 );
 
-// VCD waveform dumping controlled by parameter
+// VCD waveform dumping 
 initial begin
-    if ($test$plusargs("DUMP_VCD")) begin
-        $dumpfile("waveform.vcd");
-        $dumpvars(0, TestSystem_Top);  // 顶层模块所有信号
-        $dumpvars(1, TestSystem_Top.u_FSM);  // FSM子模块所有信号
-        $dumpvars(1, TestSystem_Top.u_ClockGen);  // 时钟模块所有信号
-        $dumpvars(1, TestSystem_Top.u_ADC); 
-        $dumpvars(1, TestSystem_Top.u_DAC);
-        $dumpvars(1, TestSystem_Top.u_ConfigParser);  // 新增配置解析模块
-        $dumpvars(1, TestSystem_Top.u_DigitalIO);  // 新增数字IO模块
+    // 初始化所有信号
+    force rst_n = 0;
+    #100 force rst_n = 1;
+    
+    // 单次初始化VCD记录
+    $dumpfile("waveform.vcd");
+    $dumpvars(0, TestSystem_Top);  // 仅记录顶层信号
+    $dumpvars(1, TestSystem_Top.u_FSM);  // 添加FSM状态机信号
+    
+    // 延长仿真时间并添加周期检查
+    #1000000;
+    $display("Simulation completed at time %0t", $time);
+    $dumpflush;  // 强制写入缓存数据
+    $dumpoff;    // 停止记录
+    $finish;
+end
+
+// 添加时钟监控
+always @(posedge clk) begin
+    if ($time > 100) begin  // 等待复位完成
+        $display("Clock cycle %0d at time %0t", $time/100, $time);
     end
 end
 

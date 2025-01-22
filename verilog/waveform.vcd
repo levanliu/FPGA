@@ -1,5 +1,5 @@
 $date
-	Wed Jan 22 09:44:06 2025
+	Wed Jan 22 09:51:19 2025
 $end
 $version
 	Icarus Verilog
@@ -115,38 +115,82 @@ $scope module TestSystem_Top $end
 $scope module u_FSM $end
 $upscope $end
 $upscope $end
-$scope module TestSystem_Top $end
-$scope module u_ClockGen $end
-$upscope $end
-$upscope $end
-$scope module TestSystem_Top $end
-$scope module u_ADC $end
-$upscope $end
-$upscope $end
-$scope module TestSystem_Top $end
-$scope module u_DAC $end
-$upscope $end
-$upscope $end
-$scope module TestSystem_Top $end
-$scope module u_ConfigParser $end
-$upscope $end
-$upscope $end
-$scope module TestSystem_Top $end
-$scope module u_DigitalIO $end
-$upscope $end
-$upscope $end
 $enddefinitions $end
-#0
+#100000000000000
 $dumpvars
+bx ]
+b0 \
+b0 [
+b0 Z
+bx Y
+0X
+bz W
+bz V
+zU
+bx T
+b0 S
+b0 R
+bx Q
+b0 P
+b0 O
+b0 N
+bx M
+bz L
+b0 K
+b0 J
+b0 I
+b0 H
+b0 G
+b0 F
+b11111111111111111111111111111111 E
+b0 D
+b0 C
+b0 B
+b11111111111111110000000000000000000000000000000000000000000000001111111111111111000000000000000000000000000000000000000000000000 A
+b0 @
+b0xxxxxxxx ?
+bx0000000000000000 >
+b0 =
+bx <
+bz ;
+bx :
+09
+bx 8
+07
+b11111111111111110000000000000000 6
+bx 5
+04
+b0 3
+02
+b0 1
+b0 0
+b0 /
+b11111111111111110000000000000000 .
+0-
+0,
+0+
+b0 *
+bz )
+1(
+z'
+bz &
+bz %
+b0 $
+bz #
+0"
+z!
+$end
+#1000100000000000000
+$dumpoff
 bx ]
 bx \
 bx [
 bx Z
 bx Y
 xX
-bz W
-bz V
-zU
+bx W
+bx V
+xU
 bx T
 bx S
 bx R
@@ -155,9 +199,9 @@ bx P
 bx O
 bx N
 bx M
-bz L
-b0 K
-b0 J
+bx L
+bx K
+bx J
 bx I
 bx H
 bx G
@@ -168,20 +212,20 @@ bx C
 bx B
 bx A
 bx @
-b0xxxxxxxx ?
+bx ?
 bx >
 bx =
 bx <
-bz ;
+bx ;
 bx :
-09
+x9
 bx 8
 x7
 bx 6
 bx 5
 x4
 bx 3
-02
+x2
 bx 1
 bx 0
 bx /
@@ -190,13 +234,13 @@ x-
 x,
 x+
 bx *
-bz )
-z(
-z'
-bz &
-bz %
+bx )
+x(
+x'
+bx &
+bx %
 bx $
-bz #
+bx #
 x"
-z!
+x!
 $end

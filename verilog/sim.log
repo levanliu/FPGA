@@ -1,0 +1,8 @@
+vvp fpgatest +TESTCASE=FULL_TEST +DUMP_VCD=1
+VCD info: dumpfile waveform.vcd opened for output.
+VCD warning: ignoring signals in previously scanned scope TestSystem_Top.u_FSM.
+VCD warning: ignoring signals in previously scanned scope TestSystem_Top.u_ClockGen.
+VCD warning: ignoring signals in previously scanned scope TestSystem_Top.u_ADC.
+VCD warning: ignoring signals in previously scanned scope TestSystem_Top.u_DAC.
+VCD warning: ignoring signals in previously scanned scope TestSystem_Top.u_ConfigParser.
+VCD warning: ignoring signals in previously scanned scope TestSystem_Top.u_DigitalIO.
