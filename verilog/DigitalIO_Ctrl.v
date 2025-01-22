@@ -3,7 +3,7 @@ module DigitalIO_Ctrl(
     input  wire        rst_n,
     input  wire        config_en,
     input  wire [15:0] config_data,
-    output reg  [31:0] dut_dio
+    output wire [31:0] dut_dio
 );
 
 reg [31:0] dio_reg;

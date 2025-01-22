@@ -83,10 +83,10 @@ Result_Analyzer u_Analyzer(
     .clk(clk),
     .rst_n(rst_n),
     .dut_response({adc_data, dut_dio[15:0]}),
-    .expected_data(test_vectors[vector_addr]),
+    .expected_data({24'h0, test_vectors[vector_addr]}),
     .result_valid(adc_ready),
     .error_count(error_count),
-    .statistics(statistics_bus)  // 统一统计总线接口
+    .statistics({min_latency, max_latency, average_latency, throughput})
 );
 
 // 时钟管理模块

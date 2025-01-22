@@ -5,7 +5,7 @@ module Result_Analyzer(
     input  wire [31:0] expected_data,
     input  wire        result_valid,
     output reg  [15:0] error_count,
-    output reg  [127:0] statistics
+    output wire [127:0] statistics
 );
 
 reg [31:0] total_latency;
