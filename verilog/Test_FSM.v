@@ -10,12 +10,21 @@ module Test_FSM(
     output reg         clk_out,
     output reg         power_en,
     output reg [15:0]  error_count,  // 错误计数
-    output reg         test_done     // 测试完成标志
+    output reg         test_done,    // Test complete flag
+    input  wire        dump_en       // VCD dump enable
 );
 
 reg [3:0] state;
 reg [31:0] cycle_counter;
 reg [15:0] test_pattern;
+
+// Add VCD dumping control
+initial begin
+    if (dump_en) begin
+        $dumpfile("waveform.vcd");
+        $dumpvars(0, Test_FSM);
+    end
+end
 
 always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin

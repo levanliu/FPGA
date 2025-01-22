@@ -1,29 +1,37 @@
 module TestSystem_Top(
-    input  wire         clk,         // 主时钟（如100MHz）
-    input  wire         rst_n,       // 异步复位（低有效）
-    // PC通信接口
-    input  wire         pc_cmd_valid,// PC命令有效
-    input  wire [7:0]   pc_cmd_data, // PC命令数据（如配置参数）
-    output wire         pc_ack,      // 命令确认
+    input  wire         clk,         // Main clock (e.g. 100MHz)
+    input  wire         rst_n,       // Async reset (active low)
+    // PC interface
+    input  wire         pc_cmd_valid,// PC command valid
+    input  wire [7:0]   pc_cmd_data, // PC command data
+    output wire         pc_ack,      // Command acknowledge
+    // DUT digital interface
+    output wire [31:0]  dut_dio,     // Digital I/O
+    input  wire [15:0]  dut_adc_in,  // ADC input
+    output wire [15:0]  dut_dac_out, // DAC output
+    // Auxiliary interface
+    output wire         clk_out,     // Clock output
+    output wire         power_en,    // Power enable
+    // Test control
+    input  wire [1:0]   test_mode,   // Test mode select
+    input  wire [31:0]  max_cycles   // Max test cycles
+);
 
-    // 添加VCD波形记录
-    initial begin
+// Add VCD waveform dumping
+initial begin
+    $dumpfile("waveform.vcd");
+    $dumpvars(0, TestSystem_Top);
+end
+
+// VCD Dumping control
+initial begin
+    if ($test$plusargs("DUMP_VCD")) begin
         $dumpfile("waveform.vcd");
         $dumpvars(0, TestSystem_Top);
     end
-    // DUT数字接口
-    output wire [31:0]  dut_dio,     // 数字I/O输出
-    input  wire [15:0]  dut_adc_in,  // 模拟输入（来自ADC）
-    output wire [15:0]  dut_dac_out, // 模拟输出（到DAC）
-    // 辅助接口
-    output wire         clk_out,     // 同步时钟输出
-    output wire         power_en,    // 电源使能
-    // 测试控制信号
-    input  wire [1:0]   test_mode,   // 测试模式选择
-    input  wire [31:0]  max_cycles   // 最大测试循环次数
-);
+end
 
-// 内部信号定义
+// Internal signals
 wire [31:0] config_data;
 wire        config_en;
 wire [15:0] adc_data;
@@ -86,7 +94,8 @@ Test_FSM u_FSM (
     .clk_out(clk_out),
     .power_en(power_en),
     .error_count(error_count),
-    .test_done(test_done)
+    .test_done(test_done),
+    .dump_en(test_mode[0])  // 使用test_mode[0]作为VCD dump使能信号
 );
 
 // 测试向量存储
