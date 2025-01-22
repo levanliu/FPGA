@@ -20,6 +20,14 @@ wire        config_en;
 wire [15:0] adc_data;
 wire        adc_ready;
 wire [15:0] dac_cmd;
+wire [1:0]  test_mode;      // 新增测试模式信号
+wire [31:0] max_cycles;     // 新增最大循环次数
+wire [15:0] error_count;    // 修正错误计数位宽
+wire        test_done;      // 新增测试完成标志
+wire [31:0] min_latency;    // 新增统计信号
+wire [31:0] max_latency;
+wire [31:0] average_latency;
+wire [31:0] throughput;
 
 // 配置解析模块
 ConfigParser u_ConfigParser (
