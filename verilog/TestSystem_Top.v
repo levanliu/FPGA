@@ -21,11 +21,13 @@ module TestSystem_Top(
 initial begin
     if ($test$plusargs("DUMP_VCD")) begin
         $dumpfile("waveform.vcd");
-        $dumpvars(0, TestSystem_Top);  // 记录所有层级信号
-        $dumpvars(0, TestSystem_Top.u_FSM);
-        $dumpvars(0, TestSystem_Top.u_ClockGen);
-        $dumpvars(0, TestSystem_Top.u_ADC);  // 新增ADC模块信号记录
-        $dumpvars(0, TestSystem_Top.u_DAC);  // 新增DAC模块信号记录
+        $dumpvars(0, TestSystem_Top);  // 顶层模块所有信号
+        $dumpvars(1, TestSystem_Top.u_FSM);  // FSM子模块所有信号
+        $dumpvars(1, TestSystem_Top.u_ClockGen);  // 时钟模块所有信号
+        $dumpvars(1, TestSystem_Top.u_ADC); 
+        $dumpvars(1, TestSystem_Top.u_DAC);
+        $dumpvars(1, TestSystem_Top.u_ConfigParser);  // 新增配置解析模块
+        $dumpvars(1, TestSystem_Top.u_DigitalIO);  // 新增数字IO模块
     end
 end
 

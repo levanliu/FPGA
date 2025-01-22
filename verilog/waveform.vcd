@@ -1,5 +1,5 @@
 $date
-	Wed Jan 22 09:39:04 2025
+	Wed Jan 22 09:44:06 2025
 $end
 $version
 	Icarus Verilog
@@ -125,6 +125,14 @@ $upscope $end
 $upscope $end
 $scope module TestSystem_Top $end
 $scope module u_DAC $end
+$upscope $end
+$upscope $end
+$scope module TestSystem_Top $end
+$scope module u_ConfigParser $end
+$upscope $end
+$upscope $end
+$scope module TestSystem_Top $end
+$scope module u_DigitalIO $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
