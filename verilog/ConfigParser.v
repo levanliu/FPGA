@@ -5,7 +5,7 @@ module ConfigParser(
     input  wire [7:0]  pc_cmd_data,
     output reg         config_en,
     output reg  [31:0] config_data,
-    output reg         pc_ack
+    output reg         pc_ack  // 需要保持reg类型因为是在时序逻辑中赋值
 );
 
 reg [1:0] state;

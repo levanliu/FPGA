@@ -4,7 +4,7 @@ module Data_Buffer(
     input  wire [7:0]  data_in,
     input  wire        wr_en,
     input  wire        rd_en,
-    output wire [7:0]  data_out,
+    output reg [7:0]  data_out,
     output wire        empty,
     output wire        full
 );
