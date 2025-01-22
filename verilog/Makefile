@@ -29,11 +29,11 @@ clk_test: $(TARGET)
 	$(VVP) $(TARGET) +TESTCASE=CLOCK_TEST
 
 sim: $(TARGET)
-    $(VVP) $(TARGET) +TESTCASE=FULL_TEST -vcd
-
-debug_sim: $(TARGET)
-    $(VVP) $(TARGET) +TESTCASE=DEBUG_TEST -vcd
+	$(VVP) $(TARGET) +TESTCASE=FULL_TEST -vcd
 	
+debug_sim: $(TARGET)
+	$(VVP) $(TARGET) +TESTCASE=DEBUG_TEST -vcd
+
 clean:
 	rm -f $(TARGET) *.vcd
 
