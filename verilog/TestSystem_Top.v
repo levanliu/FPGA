@@ -11,7 +11,10 @@ module TestSystem_Top(
     output wire [15:0]  dut_dac_out, // 模拟输出（到DAC）
     // 辅助接口
     output wire         clk_out,     // 同步时钟输出
-    output wire         power_en     // 电源使能
+    output wire         power_en,    // 电源使能
+    // 测试控制信号
+    input  wire [1:0]   test_mode,   // 测试模式选择
+    input  wire [31:0]  max_cycles   // 最大测试循环次数
 );
 
 // 内部信号定义
@@ -74,7 +77,7 @@ Test_FSM u_FSM (
     .adc_data(adc_data),
     .adc_ready(adc_ready),
     .test_mode(test_mode),       // 添加测试模式输入
-    .max_cycles(32'h0000_FFFF),  // 添加最大循环次数参数
+    .max_cycles(max_cycles),    // 连接顶层输入信号
     .dac_cmd(dac_cmd),
     .clk_out(clk_out),
     .power_en(power_en),
