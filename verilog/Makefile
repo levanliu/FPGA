@@ -26,7 +26,7 @@ $(TARGET): $(CLK_TEST_SRC)
 	$(IVERILOG) -o $@ $^
 
 clk_test: $(TARGET)
-	$(VVP) $(TARGET) +TESTCASE=CLOCK_TEST
+	$(VVP) $(TARGET) +TESTCASE=CLOCK_TEST -vcd
 
 sim: $(TARGET)
 	$(VVP) $(TARGET) +TESTCASE=FULL_TEST -vcd
