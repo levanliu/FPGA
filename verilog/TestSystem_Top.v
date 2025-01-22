@@ -65,10 +65,11 @@ Test_FSM u_FSM (
     .config_en(config_en),
     .adc_data(adc_data),
     .adc_ready(adc_ready),
+    .test_mode(test_mode),       // 添加测试模式输入
+    .max_cycles(32'h0000_FFFF),  // 添加最大循环次数参数
     .dac_cmd(dac_cmd),
     .clk_out(clk_out),
     .power_en(power_en),
-    .test_mode(test_mode),
     .error_count(error_count),
     .test_done(test_done)
 );
@@ -85,12 +86,7 @@ Result_Analyzer u_Analyzer(
     .expected_data(test_vectors[vector_addr]),
     .result_valid(adc_ready),
     .error_count(error_count),
-    .statistics({
-        min_latency, 
-        max_latency,
-        average_latency,
-        throughput
-    })
+    .statistics(statistics_bus)  // 统一统计总线接口
 );
 
 // 时钟管理模块

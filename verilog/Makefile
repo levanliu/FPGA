@@ -17,7 +17,8 @@ CLK_TEST_SRC = \
 	Data_Buffer.v \
 	Protocol_Adapter.v \
 	Power_Manager.v \
-	TestPattern_Standard.v
+	TestPattern_Standard.v \
+	UART_Receiver.v
 
 all: $(TARGET)
 

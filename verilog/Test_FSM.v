@@ -4,20 +4,18 @@ module Test_FSM(
     input  wire        config_en,
     input  wire [15:0] adc_data,
     input  wire        adc_ready,
-    input  wire [1:0]  test_mode,    // 新增测试模式输入
-    input  wire [31:0] max_cycles,   // 新增最大循环次数
+    input  wire [1:0]  test_mode,    // 测试模式输入
+    input  wire [31:0] max_cycles,   // 最大循环次数
     output reg  [15:0] dac_cmd,
     output reg         clk_out,
     output reg         power_en,
-    output reg [15:0]  error_count,  // 新增错误计数
-    output reg         test_done     // 新增测试完成标志
+    output reg [15:0]  error_count,  // 错误计数
+    output reg         test_done     // 测试完成标志
 );
 
 reg [3:0] state;
 reg [31:0] cycle_counter;
-reg [1:0] test_mode;
 reg [15:0] test_pattern;
-reg [31:0] max_cycles;
 
 always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin

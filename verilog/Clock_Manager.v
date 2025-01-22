@@ -1,13 +1,13 @@
 module Clock_Manager(
     input  wire clk_in,     // 100MHz主时钟
     input  wire rst_n,
-    output wire clk_out,    // 系统同步时钟
-    output reg  dut_clk,    // DUT工作时钟
-    output reg  adc_clk     // ADC采样时钟
+    output wire clk_out,     // 系统同步时钟
+    output reg  dut_clk,     // DUT工作时钟
+    output reg  adc_clk,     // ADC采样时钟
+    output reg [3:0] dut_clk_counter,  // 添加调试信号输出
+    output reg [2:0] adc_clk_counter   // 添加调试信号输出
 );
 
-reg [3:0] dut_clk_counter;
-reg [2:0] adc_clk_counter;
 
 // 系统时钟输出（50MHz）
 assign clk_out = dut_clk_counter[3]; // 100MHz / 2^1 = 50MHz
