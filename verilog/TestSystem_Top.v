@@ -5,6 +5,12 @@ module TestSystem_Top(
     input  wire         pc_cmd_valid,// PC命令有效
     input  wire [7:0]   pc_cmd_data, // PC命令数据（如配置参数）
     output wire         pc_ack,      // 命令确认
+
+    // 添加VCD波形记录
+    initial begin
+        $dumpfile("waveform.vcd");
+        $dumpvars(0, TestSystem_Top);
+    end
     // DUT数字接口
     output wire [31:0]  dut_dio,     // 数字I/O输出
     input  wire [15:0]  dut_adc_in,  // 模拟输入（来自ADC）
