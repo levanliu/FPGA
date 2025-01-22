@@ -17,17 +17,15 @@ module TestSystem_Top(
     input  wire [31:0]  max_cycles   // Max test cycles
 );
 
-// Add VCD waveform dumping
-initial begin
-    $dumpfile("waveform.vcd");
-    $dumpvars(0, TestSystem_Top);
-end
-
-// VCD Dumping control
+// VCD waveform dumping controlled by parameter
 initial begin
     if ($test$plusargs("DUMP_VCD")) begin
         $dumpfile("waveform.vcd");
-        $dumpvars(0, TestSystem_Top);
+        $dumpvars(0, TestSystem_Top);  // 记录所有层级信号
+        $dumpvars(0, TestSystem_Top.u_FSM);
+        $dumpvars(0, TestSystem_Top.u_ClockGen);
+        $dumpvars(0, TestSystem_Top.u_ADC);  // 新增ADC模块信号记录
+        $dumpvars(0, TestSystem_Top.u_DAC);  // 新增DAC模块信号记录
     end
 end
 

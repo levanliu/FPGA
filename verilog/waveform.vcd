@@ -1,0 +1,194 @@
+$date
+	Wed Jan 22 09:39:04 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module TestSystem_Top $end
+$var wire 1 ! clk $end
+$var wire 1 " clk_out $end
+$var wire 16 # dut_adc_in [15:0] $end
+$var wire 16 $ error_count [15:0] $end
+$var wire 32 % max_cycles [31:0] $end
+$var wire 8 & pc_cmd_data [7:0] $end
+$var wire 1 ' pc_cmd_valid $end
+$var wire 1 ( rst_n $end
+$var wire 2 ) test_mode [1:0] $end
+$var wire 32 * throughput [31:0] $end
+$var wire 1 + test_done $end
+$var wire 1 , power_en $end
+$var wire 1 - pc_ack $end
+$var wire 32 . min_latency [31:0] $end
+$var wire 32 / max_latency [31:0] $end
+$var wire 32 0 dut_dio [31:0] $end
+$var wire 16 1 dut_dac_out [15:0] $end
+$var wire 1 2 dut_clk $end
+$var wire 16 3 dac_cmd [15:0] $end
+$var wire 1 4 config_en $end
+$var wire 32 5 config_data [31:0] $end
+$var wire 32 6 average_latency [31:0] $end
+$var wire 1 7 adc_ready $end
+$var wire 16 8 adc_data [15:0] $end
+$var wire 1 9 adc_clk $end
+$var reg 10 : vector_addr [9:0] $end
+$scope module u_ADC $end
+$var wire 16 ; adc_in [15:0] $end
+$var wire 1 ! clk $end
+$var wire 1 ( rst_n $end
+$var reg 16 < adc_data [15:0] $end
+$var reg 1 7 adc_ready $end
+$var reg 3 = state [2:0] $end
+$upscope $end
+$scope module u_Analyzer $end
+$var wire 1 ! clk $end
+$var wire 32 > dut_response [31:0] $end
+$var wire 32 ? expected_data [31:0] $end
+$var wire 1 7 result_valid $end
+$var wire 1 ( rst_n $end
+$var wire 32 @ throughput [31:0] $end
+$var wire 128 A statistics [127:0] $end
+$var wire 32 B average_latency [31:0] $end
+$var reg 16 C error_count [15:0] $end
+$var reg 32 D max_latency [31:0] $end
+$var reg 32 E min_latency [31:0] $end
+$var reg 32 F sample_counter [31:0] $end
+$var reg 32 G total_latency [31:0] $end
+$var reg 32 H total_samples [31:0] $end
+$var reg 6 I write_ptr [5:0] $end
+$upscope $end
+$scope module u_ClockGen $end
+$var wire 1 ! clk_in $end
+$var wire 1 " clk_out $end
+$var wire 1 ( rst_n $end
+$var reg 1 9 adc_clk $end
+$var reg 3 J adc_clk_counter [2:0] $end
+$var reg 1 2 dut_clk $end
+$var reg 4 K dut_clk_counter [3:0] $end
+$upscope $end
+$scope module u_ConfigParser $end
+$var wire 1 ! clk $end
+$var wire 8 L pc_cmd_data [7:0] $end
+$var wire 1 ' pc_cmd_valid $end
+$var wire 1 ( rst_n $end
+$var reg 32 M config_data [31:0] $end
+$var reg 1 4 config_en $end
+$var reg 1 - pc_ack $end
+$var reg 2 N state [1:0] $end
+$upscope $end
+$scope module u_DAC $end
+$var wire 1 ! clk $end
+$var wire 1 ( rst_n $end
+$var wire 16 O dac_cmd [15:0] $end
+$var reg 16 P dac_out [15:0] $end
+$upscope $end
+$scope module u_DigitalIO $end
+$var wire 1 ! clk $end
+$var wire 16 Q config_data [15:0] $end
+$var wire 1 4 config_en $end
+$var wire 32 R dut_dio [31:0] $end
+$var wire 1 ( rst_n $end
+$var reg 32 S dio_reg [31:0] $end
+$upscope $end
+$scope module u_FSM $end
+$var wire 16 T adc_data [15:0] $end
+$var wire 1 7 adc_ready $end
+$var wire 1 ! clk $end
+$var wire 1 4 config_en $end
+$var wire 1 U dump_en $end
+$var wire 32 V max_cycles [31:0] $end
+$var wire 1 ( rst_n $end
+$var wire 2 W test_mode [1:0] $end
+$var reg 1 X clk_out $end
+$var reg 32 Y cycle_counter [31:0] $end
+$var reg 16 Z dac_cmd [15:0] $end
+$var reg 16 [ error_count [15:0] $end
+$var reg 1 , power_en $end
+$var reg 4 \ state [3:0] $end
+$var reg 1 + test_done $end
+$var reg 16 ] test_pattern [15:0] $end
+$upscope $end
+$upscope $end
+$scope module TestSystem_Top $end
+$scope module u_FSM $end
+$upscope $end
+$upscope $end
+$scope module TestSystem_Top $end
+$scope module u_ClockGen $end
+$upscope $end
+$upscope $end
+$scope module TestSystem_Top $end
+$scope module u_ADC $end
+$upscope $end
+$upscope $end
+$scope module TestSystem_Top $end
+$scope module u_DAC $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx ]
+bx \
+bx [
+bx Z
+bx Y
+xX
+bz W
+bz V
+zU
+bx T
+bx S
+bx R
+bx Q
+bx P
+bx O
+bx N
+bx M
+bz L
+b0 K
+b0 J
+bx I
+bx H
+bx G
+bx F
+bx E
+bx D
+bx C
+bx B
+bx A
+bx @
+b0xxxxxxxx ?
+bx >
+bx =
+bx <
+bz ;
+bx :
+09
+bx 8
+x7
+bx 6
+bx 5
+x4
+bx 3
+02
+bx 1
+bx 0
+bx /
+bx .
+x-
+x,
+x+
+bx *
+bz )
+z(
+z'
+bz &
+bz %
+bx $
+bz #
+x"
+z!
+$end

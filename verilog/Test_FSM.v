@@ -32,6 +32,8 @@ always @(posedge clk or negedge rst_n) begin
         clk_out <= 0;
         power_en <= 0;
         dac_cmd <= 16'h0000;
+        error_count <= 16'h0000;  // 增加错误计数器复位
+        test_done <= 0;           // 明确测试完成标志复位
     end else begin
         case (state)
             4'h0: begin // 初始化
